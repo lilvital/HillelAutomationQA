@@ -45,4 +45,4 @@ print(test_str[1:4]) # вывод символа c какого-то по как
 print(test_str[2:7:2]) # вывод с шагом 2
 print(test_str[-1]) # выводит последний элемент
 print(test_str[-6:-1]) # считает с конца
-print('12')
+print('test for mac')
