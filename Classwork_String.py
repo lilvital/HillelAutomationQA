@@ -36,8 +36,6 @@
 # alnum_str = "1ф"
 # print(int_str.isnumeric())# проверка только ли числа в строке
 # print(str_str.isalpha())# проверка только ли буквы в строке
-# print((alnum_str.isalnum())) # проверка на числа или буквы в строке вместе
-
 
 test_str = "abc123def"
 print(test_str[0]) # вывод символа под индексом
