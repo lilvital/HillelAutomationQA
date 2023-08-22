@@ -49,7 +49,7 @@ class Round(Figure):
 
 triangle = Triangle(side=10, second_side=2, third_side=5, h=2)
 
-round = Round(radius=2)
+round = Round(radius=3)
 
 list_figures : [Figure] = [triangle, round]
 for figure in list_figures:
