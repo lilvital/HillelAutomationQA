@@ -7,4 +7,4 @@ def test_check_sum(first_num, second_num, expected_num):
 
 
 def custom_sum(first_num,  second_num):
-    return first_num + second_num
+    return first_num - second_num
