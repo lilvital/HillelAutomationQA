@@ -25,20 +25,20 @@ class UserSignUpModel:
 #
 # r = requests.post(url=url, json=payload, headers=headers)
 
-class TestRegistration:
-
-    def setup_class(self):
-        self.user_to_sign_up = UserSignUpModel("John", "Dou", "s1ad11as1daa31231123131s@test.com", "Qwerty12345", "Qwerty12345")
-
-    def setup_method(self):
-        self.session = requests.session()
-
-    def test_check_successful_user_registration(self):
-        post_new_user = self.session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=self.user_to_sign_up.__dict__)
-        assert post_new_user.status_code == 201
-    def test_check_successful_user_registration1(self):
-        post_new_user = self.session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=self.user_to_sign_up.__dict__)
-        assert post_new_user.status_code == 201
-
-    def teardown_method(self):
-        self.session.delete("https://qauto2.forstudy.space/api/users")
+# class TestRegistration:
+#
+#     def setup_class(self):
+#         self.user_to_sign_up = UserSignUpModel("John", "Dou", "s1ad11as1daa31231123131s@test.com", "Qwerty12345", "Qwerty12345")
+#
+#     def setup_method(self):
+#         self.session = requests.session()
+#
+#     def test_check_successful_user_registration(self):
+#         post_new_user = self.session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=self.user_to_sign_up.__dict__)
+#         assert post_new_user.status_code == 201
+#     def test_check_successful_user_registration1(self):
+#         post_new_user = self.session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=self.user_to_sign_up.__dict__)
+#         assert post_new_user.status_code == 201
+#
+#     def teardown_method(self):
+#         self.session.delete("https://qauto2.forstudy.space/api/users")

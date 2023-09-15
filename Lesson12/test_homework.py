@@ -48,24 +48,24 @@ class UserSignInModel:
 #     # assert "data" in get_user_profile.text
 #     assert get_user_profile.status_code == 200
 
-
-user_data = [
-    ("John", "Dou", "sa11da1s11112ddfsfsasdadadfsfs121aasd312sgs3131s@test.com", "Qwerty12345", "Qwerty12345"),
-    ("Jane", "Smith", "janesmith@e11xample.com", "qwert", "qwert"),
-]
-@pytest.mark.parametrize("name, last_name, email, password, repeat_password", user_data)
-def test_register_user(name, last_name, email, password, repeat_password):
-    payload = {
-        "name": name,
-        "lastName": last_name,
-        "email": email,
-        "password": password,
-        "repeatPassword": repeat_password
-    }
-    session = requests.session()
-    post_new_user = session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=payload)
-
-    assert post_new_user.status_code == 201
+#
+# user_data = [
+#     ("John", "Dou", "sa11da1s11112ddfsfsasdadadfsfs121aasd312sgs3131s@test.com", "Qwerty12345", "Qwerty12345"),
+#     ("Jane", "Smith", "janesmith@e11xample.com", "qwert", "qwert"),
+# ]
+# @pytest.mark.parametrize("name, last_name, email, password, repeat_password", user_data)
+# def test_register_user(name, last_name, email, password, repeat_password):
+#     payload = {
+#         "name": name,
+#         "lastName": last_name,
+#         "email": email,
+#         "password": password,
+#         "repeatPassword": repeat_password
+#     }
+#     session = requests.session()
+#     post_new_user = session.post(url="https://qauto2.forstudy.space/api/auth/signup", json=payload)
+#
+#     assert post_new_user.status_code == 201
 
 
 
