@@ -1,43 +1,42 @@
 import time
-import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import pytest
 
-@pytest.fixture(scope="module")
-def setup():
-    driver = webdriver.Chrome()
-    driver.get("https://guest:welcome2qauto@qauto2.forstudy.space/")
-    yield driver
-    driver.quit()
 
-def test_check_registration(setup):
-    driver = setup
+class TestRegistration:
+    def setup_class(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(3)
 
-    sign_up_button = driver.find_element(By.XPATH, "//button[text() = 'Sign up']")
-    sign_up_button.click()
+    def test_sign_up(self):
+        self.driver.get("https://guest:welcome2qauto@qauto2.forstudy.space/")
 
-    name_field = driver.find_element(By.ID, "signupName")
-    name_field.send_keys("John")
+        sign_up_button = self.driver.find_element(By.XPATH, "//button[text() = 'Sign up']")
+        sign_up_button.click()
 
-    last_name_field = driver.find_element(By.ID, "signupLastName")
-    last_name_field.send_keys("Dou")
+        name_field = self.driver.find_element(By.ID, "signupName")
+        name_field.send_keys("John")
 
-    email_field = driver.find_element(By.ID, "signupEmail")
-    email_field.send_keys("johndo111031112101@gmail.com")
+        last_name_field = self.driver.find_element(By.ID, "signupLastName")
+        last_name_field.send_keys("Dou")
 
-    password_field = driver.find_element(By.ID, "signupPassword")
-    password_field.send_keys("Qwerty12345")
+        email_field = self.driver.find_element(By.ID, "signupEmail")
+        email_field.send_keys("johndo11103213111@gmail.com")
 
-    repeat_password_field = driver.find_element(By.ID, "signupRepeatPassword")
-    repeat_password_field.send_keys("Qwerty12345")
+        password_field = self.driver.find_element(By.ID, "signupPassword")
+        password_field.send_keys("Qwerty12345")
 
-    register_button = driver.find_element(By.XPATH, "//button[text() = 'Register']")
-    register_button.click()
+        repeat_password_field = self.driver.find_element(By.ID, "signupRepeatPassword")
+        repeat_password_field.send_keys("Qwerty12345")
 
-    time.sleep(5)
+        register_button = self.driver.find_element(By.XPATH, "//button[text() = 'Register']")
+        register_button.click()
 
-    check_registration = driver.find_element(By.XPATH, "//p[text() = 'You don’t have any cars in your garage']")
-    assert check_registration.text == "You don’t have any cars in your garage"
+    def test_check_registration(self):
+        check_registration = self.driver.find_element(By.XPATH, "//p[text()='You don’t have any cars in your garage']")
+        assert check_registration.text == "You don’t have any cars in your garage"
 
-def test_example_teardown(setup):
-    pass
+    def teardown_class(self):
+        self.driver.quit()
+
